@@ -1,1 +1,1 @@
-<p>plsky nevytvarejte novy soubory kdyby tam ta vec uz byla, kdyby nekdo mel lepsi kod tak to commitnete<p>
+<p>repozitář na úkoly z DI ať pak nejsme na konci roku uvaření</p>

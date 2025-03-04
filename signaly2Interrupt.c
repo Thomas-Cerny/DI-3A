@@ -1,15 +1,24 @@
+/*
+* 5. ULOHA: GENERUJ SIGNALY:
+* 1) 2KHZ POKUD JE LOG. 1 NA RA0
+* 2) 2KHZ POKUD JE LOG. 1 NA RA0
+*    1KHZ -> RA1
+*    500HZ -> RA2
+*    250HZ -> RA3
+*/
+
+// Generuje signaly na RB0 - RB3
+
 #include <p33EV32GM002.h>
 
 _FOSCSEL( FNOSC_FRC )
-_FOSC( OSCIOFNC_ON &  IOL1WAY_OFF)
+_FOSC( OSCIOFNC_ON & IOL1WAY_OFF)
 _FWDT( FWDTEN_OFF )
 
 int main()
 {
-    ANSELA = 0;
-    ANSELB = 0;
-    TRISA = 0;
-    TRISB = 0;
+    ANSELA = ANSELB = 0;
+    TRISA = TRISB = 0;
     PR2 = 901;
     PR3 = 1843;
     PR4 = 3685;
@@ -17,10 +26,8 @@ int main()
     T2CON = T3CON = T4CON = T5CON = 0x8000;
     
     INTCON2bits.GIE = 1;
-    IEC0bits.T2IE = 1;
-    IEC0bits.T3IE = 1;
-    IEC1bits.T4IE = 1;
-    IEC1bits.T5IE = 1;
+    IEC0bits.T2IE = IEC0bits.T3IE = 1;
+    IEC1bits.T4IE = IEC1bits.T5IE = 1;
     
     while (1)
     {

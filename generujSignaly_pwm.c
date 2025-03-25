@@ -30,6 +30,7 @@ int main()
 
     /* Nastaveni rezimu generovani PWM signalu */
     PWMCON1 = PWMCON2 = PWMCON3 = 0x0008;   // Independent mode - kazdy vystup bezi samostatne
+    FCLCON1 = FCLCON2 = FCLCON3 = 0x0003;
 
     /* Konfigurace generovani PWM */
     PTCON2 = 0x0004;        // Nastavuje delicku 1:4
